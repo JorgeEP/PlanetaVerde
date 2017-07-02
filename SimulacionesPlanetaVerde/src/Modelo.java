@@ -5,7 +5,17 @@ public class Modelo {
     final int     MAX_COLAS;
     final double  PORC_PADRE  = 4.8;
     final double  PORC_ABUELO = 48;
-    int[] cuota = {12, 24, 36, 60, 96, 120, 240, 360, 600, 960, 1200, 2400, 3600, 6000, 9600};
+   
+    int[] cuota = {12, 
+                   12, 24, 
+                   12, 24, 36, 
+                   12, 24, 36, 60, 
+                   12, 24, 36, 60, 96,
+                   12, 24, 36, 60, 96, 120,
+                   12, 24, 36, 60, 96, 120, 180
+    };
+
+//    int[] cuota = { 12, 18, 27, 40, 60, 90, 135, 200, 300, 450, 675, 1000};
 
     Queue<User>[] colaNivel;
     Procesador[]  p;
@@ -76,8 +86,8 @@ public class Modelo {
     
     
     public static void main(String[] args) {
-        boolean interactivo = false;
-        Modelo            m = new Modelo(1000, interactivo);
+        boolean interactivo = true;
+        Modelo            m = new Modelo(100_000, interactivo);
         m.proceso();
         System.out.println(m.totalUsuarios() + " " + m.totalIngresos() + " " + m.totalPV());
     }
